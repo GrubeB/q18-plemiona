@@ -19,4 +19,11 @@ import java.util.List;
 @AllArgsConstructor
 public class TestControllerImpl implements TestController {
     private TestService service;
+    //    @GetMapping("/page")
+//    public ResponseEntity<List<Test>> fetchAll2(@RequestBody Test test, @RequestBody Page page) {
+//        List<Test> dtoList = service.fetchEntityAll();
+//        return ResponseEntity
+//                .status(HttpStatus.OK)
+//                .body(dtoList);
+//    }
 }

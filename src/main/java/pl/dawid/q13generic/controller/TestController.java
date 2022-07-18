@@ -1,6 +1,7 @@
 package pl.dawid.q13generic.controller;
 
 
+import pl.dawid.q13generic.controller.root.FetchByCriteriaController;
 import pl.dawid.q13generic.controller.root.FullController;
 import pl.dawid.q13generic.entity.Test;
 import pl.dawid.q13generic.dto.TestCreateDto;
