@@ -1,0 +1,10 @@
+package pl.dawid.main.repository;
+
+import org.springframework.stereotype.Repository;
+import pl.dawid.main.entity.structure.StructureProperty;
+import pl.dawid.main.repository.root.GRepository;
+
+//@Repository
+public interface StructurePropertyRepository extends GRepository<StructureProperty, Long> {
+
+}
