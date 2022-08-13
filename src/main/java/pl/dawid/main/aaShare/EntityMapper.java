@@ -1,10 +1,4 @@
-package pl.dawid.main.castle.adapter.out.persistence;
-
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import pl.dawid.main.castle.domain.Castle;
-import pl.dawid.main.castle.domain.DomainId;
-import pl.dawid.main.mapper.root.GMapper;
+package pl.dawid.main.aaShare;
 
 import java.util.List;
 import java.util.Set;

@@ -3,10 +3,8 @@ package pl.dawid.main.castle.adapter.out.persistence.resource;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-import pl.dawid.main.castle.adapter.out.persistence.EntityMapper;
-import pl.dawid.main.castle.adapter.out.persistence.castle.CastleEntityMapper;
+import pl.dawid.main.aaShare.EntityMapper;
 import pl.dawid.main.castle.domain.CastleResource;
-import pl.dawid.main.mapper.root.config.MapStructConfig;
 
 @Mapper
 public interface CastleResourceEntityMapper extends EntityMapper<CastleResourceEntity, CastleResource> {

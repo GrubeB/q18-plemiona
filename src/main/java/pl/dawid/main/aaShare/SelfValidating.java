@@ -1,4 +1,4 @@
-package pl.dawid.main.castle.application.port.in;
+package pl.dawid.main.aaShare;
 
 
 import javax.validation.*;

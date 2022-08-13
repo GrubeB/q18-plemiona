@@ -1,4 +1,4 @@
-package pl.dawid.main.castle.adapter.out.persistence;
+package pl.dawid.main.aaShare;
 
 public class NotFoundException extends RuntimeException {
 

@@ -11,5 +11,6 @@ import java.util.Optional;
 public interface CastleEntityCommand{
     Optional<CastleEntity> findById(Long id);
     List<CastleEntity> findAll();
+    List<CastleEntity> findByName(String name);
     CastleEntity saveAndFlush(CastleEntity castleEntity);
 }
