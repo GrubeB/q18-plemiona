@@ -12,6 +12,7 @@ public class CastleResource {
     private Long id;
     private Long amount;
     private Long amountMax;
+    @JsonIgnore
     private Castle castle;
     private ResourceType type;
 

@@ -27,7 +27,7 @@ public class CreateCastleService implements CreateCastleUseCase {
         newCastle.addCastleResource(iron);
         newCastle.addCastleResource(employee);
         // 3. Save
-        createCastlePort.createEntity(newCastle);
+        newCastle=createCastlePort.createEntity(newCastle);
         return newCastle;
     }
 }

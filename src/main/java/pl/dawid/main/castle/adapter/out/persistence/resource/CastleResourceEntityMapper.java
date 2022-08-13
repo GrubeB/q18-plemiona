@@ -8,14 +8,13 @@ import pl.dawid.main.castle.adapter.out.persistence.castle.CastleEntityMapper;
 import pl.dawid.main.castle.domain.CastleResource;
 import pl.dawid.main.mapper.root.config.MapStructConfig;
 
-@Mapper(config = MapStructConfig.class)
+@Mapper
 public interface CastleResourceEntityMapper extends EntityMapper<CastleResourceEntity, CastleResource> {
-
     CastleResourceEntityMapper INSTANCE = Mappers.getMapper(CastleResourceEntityMapper.class);
-//    @Override
-//    @Mapping(target = "castle", ignore = true)
-//    CastleResource mapToDomainObject(CastleResourceEntity source);
-//    @Override
-//    @Mapping(target = "castle", ignore = true)
-//    CastleResourceEntity mapToJpaEntity(CastleResource source);
+    @Override
+    @Mapping(target = "castle", ignore = true)
+    CastleResource mapToDomainObject(CastleResourceEntity source);
+    @Override
+    @Mapping(target = "castle", ignore = true)
+    CastleResourceEntity mapToJpaEntity(CastleResource source);
 }
