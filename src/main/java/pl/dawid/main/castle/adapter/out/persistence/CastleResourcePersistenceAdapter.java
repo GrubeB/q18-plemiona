@@ -6,10 +6,7 @@ import pl.dawid.main.castle.adapter.out.persistence.castle.CastleEntityMapper;
 import pl.dawid.main.castle.adapter.out.persistence.resource.CastleResourceEntity;
 import pl.dawid.main.castle.adapter.out.persistence.resource.CastleResourceEntityCommand;
 import pl.dawid.main.castle.adapter.out.persistence.resource.CastleResourceEntityMapper;
-import pl.dawid.main.castle.application.port.out.CreateCastlePort;
-import pl.dawid.main.castle.application.port.out.FetchCastlePort;
-import pl.dawid.main.castle.application.port.out.FetchCastleResourcePort;
-import pl.dawid.main.castle.application.port.out.UpdateCastlePort;
+import pl.dawid.main.castle.application.port.out.*;
 import pl.dawid.main.castle.domain.Castle;
 import pl.dawid.main.castle.domain.CastleResource;
 
@@ -17,7 +14,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class CastleResourcePersistenceAdapter implements
-        FetchCastleResourcePort {
+        FetchCastleResourcePort,
+        UpdateCastleResourcePort {
     private final CastleResourceEntityCommand castleResourceEntityCommand;
     private final CastleResourceEntityMapper castleResourceEntityMapper = CastleResourceEntityMapper.INSTANCE;
 
@@ -37,4 +35,10 @@ public class CastleResourcePersistenceAdapter implements
         return castleResourceEntityMapper.mapToDomainObjectList(castleResourceEntityList);
     }
 
+    @Override
+    public CastleResource updateEntity(CastleResource castleResource) {
+        CastleResourceEntity castleResourceEntity = castleResourceEntityMapper.mapToJpaEntity(castleResource);
+        CastleResourceEntity castleResourceEntitySaved = castleResourceEntityCommand.saveAndFlush(castleResourceEntity);
+        return castleResourceEntityMapper.mapToDomainObject(castleResourceEntitySaved);
+    }
 }

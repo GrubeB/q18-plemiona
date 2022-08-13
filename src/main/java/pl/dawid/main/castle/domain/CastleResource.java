@@ -42,20 +42,20 @@ public class CastleResource {
     }
     /* METHODS */
     public void addResource(Long addedNumber){
-        if(checkIfPositive(addedNumber)){
+        if(!checkIfPositive(addedNumber)){
             throw new IllegalStateException("Number must be positive");
         }
-        if(checkIfAdditionPossible(addedNumber)){
+        if(!checkIfAdditionPossible(addedNumber)){
             amount=amountMax; //TODO have to think about it in some cases
             return;
         }
         amount=amount+addedNumber;
     }
     public void subtractResource(Long subtractedNumber){
-        if(checkIfPositive(subtractedNumber)){
+        if(!checkIfPositive(subtractedNumber)){
             throw new IllegalStateException("Number must be positive");
         }
-        if(checkIfSubtractionPossible(subtractedNumber)){
+        if(!checkIfSubtractionPossible(subtractedNumber)){
             throw new IllegalStateException("Subtraction is impossible");
         }
         amount=amount-subtractedNumber;
@@ -71,7 +71,7 @@ public class CastleResource {
     }
     public Double amountFromLastUpdate(){
         LocalDateTime now = LocalDateTime.now();
-        long milliSeconds = now.until(this.lastAutoUpdate, ChronoUnit.MILLIS);
+        long milliSeconds = -now.until(this.lastAutoUpdate, ChronoUnit.MILLIS);
         return amountPerSecond*milliSeconds/1000;
     }
     public void autoUpdate(){

@@ -36,8 +36,9 @@ public class CastleConfiguration {
     }
     /* Managers */
     @Bean
-    CastleResourceManager castleResourceSchedule(CastlePersistenceAdapter castlePersistenceAdapter) {
-        return new CastleResourceManager(castlePersistenceAdapter);
+    CastleResourceManager castleResourceSchedule(CastlePersistenceAdapter castlePersistenceAdapter,
+                                                 CastleResourcePersistenceAdapter castleResourcePersistenceAdapter) {
+        return new CastleResourceManager(castlePersistenceAdapter,castleResourcePersistenceAdapter,castleResourcePersistenceAdapter);
     }
     /* Helpers */
     @Bean

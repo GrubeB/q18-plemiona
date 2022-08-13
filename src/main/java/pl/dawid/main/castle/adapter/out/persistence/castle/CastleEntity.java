@@ -20,6 +20,6 @@ public class CastleEntity {
     private Long id;
     //private User user;//TODO when user module will be ready
     private String name;
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy="castle",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<CastleResourceEntity> castleResourceList;
 }
