@@ -21,7 +21,7 @@ public class CastleResourceEntity {
     private Long id;
     private Long amount;
     private Long amountMax;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "castle_id", updatable = false)
     private CastleEntity castle;
     @Enumerated(EnumType.STRING)

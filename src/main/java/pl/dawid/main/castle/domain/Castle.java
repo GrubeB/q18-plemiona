@@ -35,6 +35,11 @@ public class Castle {
             return;
         }
         castleResourceList.add(castleResource);
+        castleResource.setCastle(this);
+    }
+    public void removeCastleResource(CastleResource castleResource){
+        castleResourceList.remove(castleResource);
+        castleResource.setCastle(null);
     }
     public List<CastleResource> getCastleResourceList(){
         return Collections.unmodifiableList(this.castleResourceList);
