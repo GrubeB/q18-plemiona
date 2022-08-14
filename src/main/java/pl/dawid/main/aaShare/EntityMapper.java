@@ -9,9 +9,9 @@ public interface EntityMapper<JPA_ENTITY, DOMAIN_OBJECT> {
 
     JPA_ENTITY mapToJpaEntity(DOMAIN_OBJECT source);
 
-    Set<DOMAIN_OBJECT> mapToDomainObjectSet(Set<JPA_ENTITY> source);
-
-    Set<JPA_ENTITY> mapToJpaEntitySet(Set<DOMAIN_OBJECT> source);
+//    Set<DOMAIN_OBJECT> mapToDomainObjectSet(Set<JPA_ENTITY> source);
+//
+//    Set<JPA_ENTITY> mapToJpaEntitySet(Set<DOMAIN_OBJECT> source);
 
     List<DOMAIN_OBJECT> mapToDomainObjectList(List<JPA_ENTITY> source);
 

@@ -8,20 +8,21 @@ import pl.dawid.main.castle.domain.Castle;
 
 @Mapper(
         uses = {CastleResourceEntityMapper.class},
+        //componentModel = "spring",
+        //injectionStrategy = InjectionStrategy.CONSTRUCTOR,
+        //injectionStrategy = InjectionStrategy.FIELD,
         collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED
 )
 public interface CastleEntityMapper extends EntityMapper<CastleEntity, Castle> {
     CastleEntityMapper INSTANCE = Mappers.getMapper(CastleEntityMapper.class);
 
-//    @Override
-//    @Mapping(target = "castleResourceList", source = "castleResourceList", qualifiedByName = "mapWithoutLoop")
-//    Castle mapToDomainObject(CastleEntity source);
-//    @Override
-//    @Mapping(target = "castleResourceList", source = "castleResourceList", qualifiedByName = "mapWithoutLoop")
-//    CastleEntity mapToJpaEntity(Castle source);
-//
-//
-//
+    @Override
+    @Mapping(target = "castleResourceList", source = "castleResourceList", qualifiedByName = "mapWithoutLoop")
+    Castle mapToDomainObject(CastleEntity source);
+    @Override
+    @Mapping(target = "castleResourceList", source = "castleResourceList", qualifiedByName = "mapWithoutLoop")
+    CastleEntity mapToJpaEntity(Castle source);
+
 //    @Named("mapWithoutLoop")
 //    @Mapping(target = "castleResourceList", ignore = true)
 //    Castle mapToDomainObjectWithoutLoop(CastleEntity source);
@@ -29,8 +30,6 @@ public interface CastleEntityMapper extends EntityMapper<CastleEntity, Castle> {
 //    @Named("mapWithoutLoop")
 //    @Mapping(target = "castleResourceList", ignore = true)
 //    CastleEntity mapToJpaEntityWithoutLoop(Castle source);
-
-
 
     @AfterMapping
     default void updateCastle(CastleEntity castleEntity, @MappingTarget Castle castle) {

@@ -1,5 +1,6 @@
 package pl.dawid.main.castle.adapter.out.persistence;
 
+import org.mapstruct.factory.Mappers;
 import pl.dawid.main.castle.adapter.out.persistence.castle.CastleEntity;
 import pl.dawid.main.castle.adapter.out.persistence.castle.CastleEntityMapper;
 import pl.dawid.main.castle.adapter.out.persistence.castle.CastleEntityCommand;
