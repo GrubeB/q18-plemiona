@@ -1,4 +1,4 @@
-package pl.dawid.main.castle.application;
+package pl.dawid.main.castle.application.service;
 
 import lombok.RequiredArgsConstructor;
 import pl.dawid.main.aaShare.NotFoundException;

@@ -1,6 +1,8 @@
-package pl.dawid.main.castle.application;
+package pl.dawid.main.castle.application.service;
 
 import lombok.RequiredArgsConstructor;
+import pl.dawid.main.castle.application.CastleFactory;
+import pl.dawid.main.castle.application.CastleValidator;
 import pl.dawid.main.castle.application.port.in.CreateCastleCommand;
 import pl.dawid.main.castle.application.port.in.CreateCastleUseCase;
 import pl.dawid.main.castle.application.port.out.CreateCastlePort;

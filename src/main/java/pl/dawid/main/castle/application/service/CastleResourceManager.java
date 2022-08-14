@@ -1,15 +1,12 @@
-package pl.dawid.main.castle.application;
+package pl.dawid.main.castle.application.service;
 
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import pl.dawid.main.castle.application.port.out.FetchCastlePort;
 import pl.dawid.main.castle.application.port.out.FetchCastleResourcePort;
 import pl.dawid.main.castle.application.port.out.UpdateCastleResourcePort;
-import pl.dawid.main.castle.domain.Castle;
 import pl.dawid.main.castle.domain.CastleResource;
 
 import java.util.List;
@@ -25,7 +22,7 @@ public class CastleResourceManager {
 
     private final UpdateCastleResourcePort updateCastleResourcePort;
 
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 10000)
     private void castlesResourceAutoUpdate() {
         logger.info("castlesResourceAutoUpdate");
         List<CastleResource> castleResourceList = fetchCastleResourcePort.findAll();

@@ -8,6 +8,7 @@ import pl.dawid.main.castle.adapter.out.persistence.CastleResourcePersistenceAda
 import pl.dawid.main.castle.adapter.out.persistence.castle.CastleEntityCommand;
 import pl.dawid.main.castle.adapter.out.persistence.resource.CastleResourceEntityCommand;
 import pl.dawid.main.castle.application.port.in.CreateCastleUseCase;
+import pl.dawid.main.castle.application.service.*;
 
 @Configuration
 @EnableScheduling
@@ -17,9 +18,10 @@ public class CastleConfiguration {
                                                             CastleResourceEntityCommand castleResourceEntityCommand) {
         return new CastlePersistenceAdapter(castleEntityCommand, castleResourceEntityCommand);
     }
+
     @Bean
     CastleResourcePersistenceAdapter castleResourcePersistenceAdapter(CastleResourceEntityCommand castleResourceEntityCommand) {
-        return new CastleResourcePersistenceAdapter( castleResourceEntityCommand);
+        return new CastleResourcePersistenceAdapter(castleResourceEntityCommand);
     }
 
     /* UseCase */
@@ -34,12 +36,39 @@ public class CastleConfiguration {
     FetchCastleService fetchCastleByIdCastleService(CastlePersistenceAdapter castlePersistenceAdapter) {
         return new FetchCastleService(castlePersistenceAdapter);
     }
+
+    @Bean
+    AddResourceToCastleService addResourceToCastleService(
+            CastlePersistenceAdapter castlePersistenceAdapter,
+            CastleResourcePersistenceAdapter castleResourcePersistenceAdapter,
+            CastleValidator castleValidator
+    ) {
+        return new AddResourceToCastleService(
+                castleResourcePersistenceAdapter,
+                castlePersistenceAdapter,
+                castleValidator
+        );
+    }
+
+    @Bean
+    SubtractResourceFromCastleService subtractResourceFromCastleService(
+            CastlePersistenceAdapter castlePersistenceAdapter,
+            CastleResourcePersistenceAdapter castleResourcePersistenceAdapter,
+            CastleValidator castleValidator
+    ) {
+        return new SubtractResourceFromCastleService(
+                castleResourcePersistenceAdapter,
+                castlePersistenceAdapter,
+                castleValidator
+        );
+    }
     /* Managers */
     @Bean
     CastleResourceManager castleResourceSchedule(CastlePersistenceAdapter castlePersistenceAdapter,
                                                  CastleResourcePersistenceAdapter castleResourcePersistenceAdapter) {
-        return new CastleResourceManager(castlePersistenceAdapter,castleResourcePersistenceAdapter,castleResourcePersistenceAdapter);
+        return new CastleResourceManager(castlePersistenceAdapter, castleResourcePersistenceAdapter, castleResourcePersistenceAdapter);
     }
+
     /* Helpers */
     @Bean
     CastleValidator castleValidator(CastlePersistenceAdapter castlePersistenceAdapter) {
