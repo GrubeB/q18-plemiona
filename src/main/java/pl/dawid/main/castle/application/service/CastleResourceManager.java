@@ -22,7 +22,7 @@ public class CastleResourceManager {
 
     private final UpdateCastleResourcePort updateCastleResourcePort;
 
-    @Scheduled(fixedRate = 10000)
+    //@Scheduled(fixedRate = 10000)
     private void castlesResourceAutoUpdate() {
         logger.info("castlesResourceAutoUpdate");
         List<CastleResource> castleResourceList = fetchCastleResourcePort.findAll();
