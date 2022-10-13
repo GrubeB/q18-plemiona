@@ -1,12 +1,5 @@
 package pl.dawid.main.castle.application;
 
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import pl.dawid.main.castle.application.port.in.CreateCastleCommand;
-import pl.dawid.main.castle.application.port.out.CreateCastlePort;
-import pl.dawid.main.castle.application.port.out.FetchCastlePort;
-import pl.dawid.main.castle.application.port.out.UpdateCastlePort;
-
 
 class CreateCastleServiceTest {
 

@@ -1,14 +1,5 @@
 package pl.dawid.main.castle.adapter.out.persistence;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Import;
-import pl.dawid.main.castle.adapter.out.persistence.castle.CastleEntityCommand;
-import pl.dawid.main.castle.adapter.out.persistence.resource.CastleResourceEntityCommand;
-import pl.dawid.main.castle.domain.Castle;
-import pl.dawid.main.castle.domain.CastleResource;
 
 //
 //@Import({CastlePersistenceAdapter.class})
