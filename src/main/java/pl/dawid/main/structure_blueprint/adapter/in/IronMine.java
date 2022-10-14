@@ -6,8 +6,8 @@ import pl.dawid.main.resource.domain.BaseResource;
 import pl.dawid.main.resource.domain.ResourceType;
 import pl.dawid.main.structure.StructureLevel;
 import pl.dawid.main.structure_blueprint.domain.StructureBlueprint;
-import pl.dawid.main.structure_blueprint.domain.enums.StructureLevelType;
-import pl.dawid.main.structure_blueprint.domain.enums.StructureType;
+import pl.dawid.main.structure_blueprint.domain.StructureLevelType;
+import pl.dawid.main.structure_blueprint.domain.StructureType;
 
 import java.time.Duration;
 import java.util.ArrayList;

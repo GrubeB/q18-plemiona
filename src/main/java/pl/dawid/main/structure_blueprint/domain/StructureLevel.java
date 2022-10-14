@@ -7,7 +7,7 @@ import lombok.Setter;
 import pl.dawid.main.resource.domain.BaseResource;
 import pl.dawid.main.structure_blueprint.domain.StructureRequirement;
 import pl.dawid.main.structure_blueprint.domain.StructureProperty;
-import pl.dawid.main.structure_blueprint.domain.enums.StructureLevelType;
+import pl.dawid.main.structure_blueprint.domain.StructureLevelType;
 import pl.dawid.main.structure_blueprint.domain.StructureBlueprint;
 
 import java.time.Duration;

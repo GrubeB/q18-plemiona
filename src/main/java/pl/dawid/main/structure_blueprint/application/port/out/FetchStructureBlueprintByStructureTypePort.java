@@ -1,8 +1,8 @@
 package pl.dawid.main.structure_blueprint.application.port.out;
 
 import pl.dawid.main.structure_blueprint.domain.StructureBlueprint;
-import pl.dawid.main.structure_blueprint.domain.enums.StructureType;
+import pl.dawid.main.structure_blueprint.domain.StructureType;
 
-public interface FetchByStructureTypePort {
+public interface FetchStructureBlueprintByStructureTypePort {
     StructureBlueprint fetchByStructureType(StructureType structureType);
 }

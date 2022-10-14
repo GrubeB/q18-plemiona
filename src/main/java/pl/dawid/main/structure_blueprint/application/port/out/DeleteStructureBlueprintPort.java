@@ -1,5 +1,5 @@
 package pl.dawid.main.structure_blueprint.application.port.out;
 
-public interface DeletePort {
+public interface DeleteStructureBlueprintPort {
     void delete(Long id);
 }

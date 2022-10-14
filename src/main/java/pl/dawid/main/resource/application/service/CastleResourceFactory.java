@@ -27,7 +27,6 @@ public class CastleResourceFactory {
         resourceMap.put(ResourceType.IRON, IRON);
         resourceMap.put(ResourceType.EMPLOYEE, EMPLOYEE);
 
-        CastleResource castleResource = CastleResource.resourceWithoutId(LocalDateTime.now(), castle, resourceMap);
-        return castleResource;
+        return CastleResource.resourceWithoutId(LocalDateTime.now(), castle, resourceMap);
     }
 }

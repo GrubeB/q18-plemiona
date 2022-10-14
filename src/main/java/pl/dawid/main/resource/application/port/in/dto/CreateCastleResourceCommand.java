@@ -10,5 +10,5 @@ import pl.dawid.main.castle.domain.Castle;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateCastleResourceCommand extends SelfValidating<CreateCastleResourceCommand> {
-    private Castle castle;
+    private Long castleId;
 }

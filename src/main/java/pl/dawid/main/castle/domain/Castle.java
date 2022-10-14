@@ -20,30 +20,13 @@ public class Castle {
     /* METHODS */
 
     public void setCastleResource(CastleResource newCastleResource) {
-        newCastleResource.setCastle(null);
+        if (castleResource == newCastleResource) return;
         castleResource = newCastleResource;
-        castleResource.setCastle(this);
     }
 
     public void setCastleStructure(CastleStructure newCastleStructure) {
-        newCastleStructure.setCastle(null);
+        if (castleStructure == newCastleStructure) return;
         castleStructure = newCastleStructure;
-        castleStructure.setCastle(this);
     }
-
-//    public void addCastleResource(CastleResource castleResource){
-//        if(castleResourceList.stream().anyMatch(r->r.getType().equals(castleResource.getType()))){
-//            return;
-//        }
-//        castleResourceList.add(castleResource);
-//        castleResource.setCastle(this);
-//    }
-//    public void removeCastleResource(CastleResource castleResource){
-//        castleResourceList.remove(castleResource);
-//        castleResource.setCastle(null);
-//    }
-//    public List<CastleResource> getCastleResourceList(){
-//        return Collections.unmodifiableList(this.castleResourceList);
-//    }
 
 }

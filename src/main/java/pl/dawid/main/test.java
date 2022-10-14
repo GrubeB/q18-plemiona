@@ -7,14 +7,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import pl.dawid.main.castle.application.port.in.CreateCastleCommand;
 import pl.dawid.main.castle.application.port.in.CreateCastleUseCase;
-import pl.dawid.main.castle.application.port.out.CreateCastlePort;
 import pl.dawid.main.castle.domain.Castle;
-import pl.dawid.main.resource.application.port.in.dto.CreateCastleResourceCommand;
-import pl.dawid.main.resource.application.port.in.CreateCastleResourceUseCase;
-import pl.dawid.main.resource.domain.CastleResource;
-import pl.dawid.main.structure.CastleStructure;
-import pl.dawid.main.structure.application.port.in.CreateCastleStructurePort;
-import pl.dawid.main.structure.application.port.in.dto.CreateCastleStructureCommand;
 
 import javax.annotation.PostConstruct;
 

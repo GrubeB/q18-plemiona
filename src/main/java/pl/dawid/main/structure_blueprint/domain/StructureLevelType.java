@@ -1,4 +1,4 @@
-package pl.dawid.main.structure_blueprint.domain.enums;
+package pl.dawid.main.structure_blueprint.domain;
 
 import lombok.Getter;
 

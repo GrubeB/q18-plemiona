@@ -3,7 +3,7 @@ package pl.dawid.main.structure_blueprint.adapter.out.persistence;
 import org.springframework.stereotype.Service;
 import pl.dawid.main.structure_blueprint.application.port.out.*;
 import pl.dawid.main.structure_blueprint.domain.StructureBlueprint;
-import pl.dawid.main.structure_blueprint.domain.enums.StructureType;
+import pl.dawid.main.structure_blueprint.domain.StructureType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class StructBlueprintPersistenceAdapter implements
-        CreatePort, DeletePort, FetchAllPort, FetchByIdPort, FetchByStructureTypePort {
+        CreateStructureBlueprintPort, DeleteStructureBlueprintPort, FetchAllStructureBlueprintPort, FetchStructureBlueprintByIdPort, FetchStructureBlueprintByStructureTypePort {
 
     private static Long nextId = 1L;
     private Map<Long, StructureBlueprint> repository = new ConcurrentHashMap<>(10);

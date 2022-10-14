@@ -35,20 +35,22 @@ public class CastleResource {
 
     // -----------------------------------------------------------------------------------------------
 
-    public long getMilliSecondsFromLastUpdate(){
+    public long getMilliSecondsFromLastUpdate() {
         LocalDateTime now = LocalDateTime.now();
         return -now.until(this.lastAutoUpdate, ChronoUnit.MILLIS);
     }
 
-    public void autoUpdate(){
+    public void autoUpdate() {
         resourceMap.values().forEach(resource -> resource.autoUpdate(getMilliSecondsFromLastUpdate()));
-        this.lastAutoUpdate =LocalDateTime.now();
+        this.lastAutoUpdate = LocalDateTime.now();
     }
+
     // -----------------------------------------------------------------------------------------------
     public void addResource(BaseResource materials) throws IllegalArgumentException {
         Optional.ofNullable(resourceMap.get(materials.getResourceType()))
                 .ifPresent(resource -> resource.addResource(materials.getAmount()));
     }
+
     public void subtractResource(BaseResource materials) throws IllegalArgumentException {
         Optional.ofNullable(resourceMap.get(materials.getResourceType()))
                 .ifPresent(resource -> resource.subtractResource(materials.getAmount()));
@@ -70,6 +72,7 @@ public class CastleResource {
         }
         castleResource.verifyIfSubtractPossible(materials.getAmount());
     }
+
     public void verifyIfIsEnoughResourceList(List<BaseResource> materialList) throws IllegalArgumentException {
         materialList.forEach(this::verifyIfIsEnoughResources);
     }
@@ -89,6 +92,14 @@ public class CastleResource {
 
     public Map<ResourceType, Resource> geResourceObjectList() {
         return Collections.unmodifiableMap(this.resourceMap);
+    }
+
+    public void setCastle(Castle newCastle) {
+        if (castle == newCastle) return;
+        castle.setCastleResource(null);
+        newCastle.getCastleResource().setCastle(null);
+        castle = newCastle;
+        castle.setCastleResource(this);
     }
 
     // -----------------------------------------------------------------------------------------------

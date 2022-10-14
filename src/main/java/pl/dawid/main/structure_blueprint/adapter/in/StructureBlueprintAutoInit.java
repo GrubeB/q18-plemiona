@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import pl.dawid.main.structure_blueprint.application.port.out.CreatePort;
+import pl.dawid.main.structure_blueprint.application.port.out.CreateStructureBlueprintPort;
 
 import javax.annotation.PostConstruct;
 
@@ -16,12 +16,12 @@ public class StructureBlueprintAutoInit {
      */
     private static final Logger logger = LoggerFactory.getLogger(StructureBlueprintAutoInit.class);
 
-    private final CreatePort createPort;
+    private final CreateStructureBlueprintPort createStructureBlueprintPort;
 
     @PostConstruct
     private void init(){
         logger.info("StructureBlueprintAutoInit - init()");
         IronMine ironMine = new IronMine();
-        createPort.create(ironMine);
+        createStructureBlueprintPort.create(ironMine);
     }
 }

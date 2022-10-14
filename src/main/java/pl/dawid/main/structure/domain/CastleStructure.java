@@ -4,7 +4,7 @@ import lombok.*;
 import pl.dawid.main.castle.domain.Castle;
 import pl.dawid.main.resource.domain.CastleResource;
 import pl.dawid.main.structure.domain.Structure;
-import pl.dawid.main.structure_blueprint.domain.enums.StructureType;
+import pl.dawid.main.structure_blueprint.domain.StructureType;
 import pl.dawid.main.structure_builder.adapter.in.StructureBuildManager;
 
 import java.util.Map;
@@ -19,8 +19,6 @@ public class CastleStructure {
 
     private Castle castle;
     private Map<StructureType, Structure> structureMap;
-    //private Map<StructureType, Structure> structureBuildingMap;
-    private static Long nextID=1L;
 
     /* METHODS */
     public void levelUpStructure(StructureType structureType, CastleResource castleResource, StructureBuildManager structureBuildManager) throws IllegalStateException {
@@ -64,7 +62,13 @@ public class CastleStructure {
 //        structureBuildManager.addStructureBuild(structureBuild);
 
     }
-
+    public void setCastle(Castle newCastle) {
+        if (castle == newCastle) return;
+        castle.setCastleStructure(null);
+        newCastle.getCastleStructure().setCastle(null);
+        castle = newCastle;
+        castle.setCastleStructure(this);
+    }
 
     public boolean getIfStructureExists(StructureType structureType){
         return structureMap.containsKey(structureType);

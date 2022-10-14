@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.dawid.main.structure.StructureLevel;
-import pl.dawid.main.structure_blueprint.domain.enums.StructureLevelType;
-import pl.dawid.main.structure_blueprint.domain.enums.StructureType;
 
 import java.util.Collections;
 import java.util.Map;
