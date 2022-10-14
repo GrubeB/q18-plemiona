@@ -32,7 +32,6 @@ public class test {
         castle.setCastleStructure(castleStructure);
 
     }
-
     @Scheduled(initialDelay  = 100,fixedDelay = 1000)
     private void log() {
             logger.info(castle.getCastleResource().toString());

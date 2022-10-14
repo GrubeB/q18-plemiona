@@ -4,8 +4,8 @@ import lombok.*;
 import pl.dawid.main.castle.domain.Castle;
 import pl.dawid.main.resource.domain.CastleResource;
 import pl.dawid.main.structure.domain.Structure;
-import pl.dawid.main.structureBlueprint.domain.enums.StructureType;
-import pl.dawid.main.structure.tool.StructureBuildManager;
+import pl.dawid.main.structure_blueprint.domain.enums.StructureType;
+import pl.dawid.main.structure_builder.adapter.in.StructureBuildManager;
 
 import java.util.Map;
 

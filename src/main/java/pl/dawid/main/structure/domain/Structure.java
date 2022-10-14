@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.dawid.main.structure.CastleStructure;
-import pl.dawid.main.structureBlueprint.domain.StructureBlueprint;
-import pl.dawid.main.structureBlueprint.domain.enums.StructureLevelType;
+import pl.dawid.main.structure_blueprint.domain.StructureBlueprint;
+import pl.dawid.main.structure_blueprint.domain.enums.StructureLevelType;
 
 @Getter
 @Setter

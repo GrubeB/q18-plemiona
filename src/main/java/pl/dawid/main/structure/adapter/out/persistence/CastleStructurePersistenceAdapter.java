@@ -12,7 +12,11 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class CastleStructurePersistenceAdapter implements
-        CreateCastleStructurePort, DeleteCastleStructurePort, FetchAllCastleStructurePort, FetchByIdCastleStructurePort, UpdateCastleStructurePort {
+        CreateCastleStructurePort,
+        DeleteCastleStructurePort,
+        FetchAllCastleStructurePort,
+        FetchByIdCastleStructurePort,
+        UpdateCastleStructurePort {
 
     private static Long nextId = 1L;
     private Map<Long, CastleStructure> repository = new ConcurrentHashMap<>(10);

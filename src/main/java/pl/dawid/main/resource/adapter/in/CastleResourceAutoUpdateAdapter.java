@@ -16,9 +16,9 @@ public class CastleResourceAutoUpdateAdapter {
 
     private final FetchCastleResourceUseCase fetchCastleResourceUseCase;
 
-    @Scheduled(initialDelay  = 100, fixedDelay = 1000)
+    @Scheduled(initialDelay  = 110, fixedDelay = 1000)
     private void castlesResourceAutoUpdate() {
-        // logger.info("castlesResourceAutoUpdate");
+        logger.info("castlesResourceAutoUpdate");
         fetchCastleResourceUseCase.findAllCastleResource()
                 .forEach(CastleResource::autoUpdate);
     }
