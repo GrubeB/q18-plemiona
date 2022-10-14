@@ -6,20 +6,30 @@ import pl.dawid.main.structure.CastleStructure;
 
 //@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Castle {
+    @Setter
     private Long id;
     //private User user;//TODO when user module will be ready
+    @Setter
     private String name;
     private CastleResource castleResource;
     private CastleStructure castleStructure;
-    /* CONSTRUCTORS */
-//    public static Castle castleWithId();
-//    public static Castle castleWithoutId();
 
     /* METHODS */
+
+    public void setCastleResource(CastleResource newCastleResource) {
+        newCastleResource.setCastle(null);
+        castleResource = newCastleResource;
+        castleResource.setCastle(this);
+    }
+
+    public void setCastleStructure(CastleStructure newCastleStructure) {
+        newCastleStructure.setCastle(null);
+        castleStructure = newCastleStructure;
+        castleStructure.setCastle(this);
+    }
 
 //    public void addCastleResource(CastleResource castleResource){
 //        if(castleResourceList.stream().anyMatch(r->r.getType().equals(castleResource.getType()))){

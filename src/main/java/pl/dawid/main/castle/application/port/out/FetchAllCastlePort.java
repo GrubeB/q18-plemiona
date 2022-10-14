@@ -6,8 +6,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface FetchAllCastlePort {
-    Optional<Castle> findById(Long id);
-    List<Castle> findByName(String name);
-
-    List<Castle> findAll();
+    List<Castle> fetchAll();
 }

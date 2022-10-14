@@ -4,6 +4,6 @@ import pl.dawid.main.castle.domain.Castle;
 
 import java.util.List;
 
-public interface FetchAllCastlePort {
+public interface FetchAllCastleUseCase {
     List<Castle> fetchAll();
 }

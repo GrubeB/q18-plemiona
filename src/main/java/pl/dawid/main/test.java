@@ -5,6 +5,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import pl.dawid.main.castle.application.port.in.CreateCastleCommand;
+import pl.dawid.main.castle.application.port.in.CreateCastleUseCase;
+import pl.dawid.main.castle.application.port.out.CreateCastlePort;
 import pl.dawid.main.castle.domain.Castle;
 import pl.dawid.main.resource.application.port.in.dto.CreateCastleResourceCommand;
 import pl.dawid.main.resource.application.port.in.CreateCastleResourceUseCase;
@@ -19,18 +22,12 @@ import javax.annotation.PostConstruct;
 @RequiredArgsConstructor
 public class test {
     private static final Logger logger = LoggerFactory.getLogger(test.class);
-    private final CreateCastleResourceUseCase createCastleResourceUseCase;
-    private final CreateCastleStructurePort createCastleStructurePort;
+    private final CreateCastleUseCase createCastleUseCase;
     private Castle castle;
 
     @PostConstruct
     private void construct(){
-        castle = new Castle();
-        CastleResource castleResource = createCastleResourceUseCase.createCastleResource(new CreateCastleResourceCommand(castle));
-        castle.setCastleResource(castleResource);
-        CastleStructure castleStructure = createCastleStructurePort.createCastleStructure(new CreateCastleStructureCommand(castle));
-        castle.setCastleStructure(castleStructure);
-
+        castle = createCastleUseCase.create(new CreateCastleCommand("Nowa"));
     }
     @Scheduled(initialDelay  = 100,fixedDelay = 1000)
     private void log() {
