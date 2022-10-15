@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pl.dawid.main.aaShare.core.domain.SetId;
 import pl.dawid.main.castle.domain.Castle;
 
 import java.time.LocalDateTime;
@@ -14,7 +15,7 @@ import java.util.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CastleResource {
+public class CastleResource implements SetId {
 
     private Long id;
     private LocalDateTime lastAutoUpdate;

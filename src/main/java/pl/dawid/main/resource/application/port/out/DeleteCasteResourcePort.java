@@ -1,5 +1,6 @@
 package pl.dawid.main.resource.application.port.out;
 
-public interface DeleteCasteResourcePort {
-    void delete(Long id);
+import pl.dawid.main.aaShare.core.application.port.out.DeletePort;
+
+public interface DeleteCasteResourcePort extends DeletePort {
 }

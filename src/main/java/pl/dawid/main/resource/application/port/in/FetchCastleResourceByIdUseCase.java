@@ -1,9 +1,8 @@
 package pl.dawid.main.resource.application.port.in;
 
 
+import pl.dawid.main.aaShare.core.application.port.in.FetchByIdUseCase;
 import pl.dawid.main.resource.domain.CastleResource;
 
-public interface FetchCastleResourceByIdUseCase {
-
-    CastleResource findById(Long id);
+public interface FetchCastleResourceByIdUseCase extends FetchByIdUseCase<CastleResource> {
 }
