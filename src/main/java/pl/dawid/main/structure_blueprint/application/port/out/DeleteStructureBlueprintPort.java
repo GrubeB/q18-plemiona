@@ -1,5 +1,6 @@
 package pl.dawid.main.structure_blueprint.application.port.out;
 
-public interface DeleteStructureBlueprintPort {
-    void delete(Long id);
+import pl.dawid.main.aaShare.core.application.port.out.DeletePort;
+
+public interface DeleteStructureBlueprintPort extends DeletePort {
 }

@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import pl.dawid.main.structure_blueprint.application.port.out.CreateStructureBlueprintPort;
 
 import javax.annotation.PostConstruct;
 

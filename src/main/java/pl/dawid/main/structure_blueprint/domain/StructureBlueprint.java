@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pl.dawid.main.aaShare.core.domain.SetId;
 import pl.dawid.main.structure.StructureLevel;
 
 import java.util.Collections;
@@ -14,7 +15,7 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StructureBlueprint {
+public class StructureBlueprint implements SetId {
     protected Long id;
     protected String name;
     protected String description;
