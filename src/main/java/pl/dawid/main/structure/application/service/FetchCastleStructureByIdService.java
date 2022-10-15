@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.dawid.main.aaShare.core.application.service.FetchByIdService;
 import pl.dawid.main.castle.application.port.in.FetchCastleByIdUseCase;
 import pl.dawid.main.castle.application.port.out.FetchCastleByIdPort;
 import pl.dawid.main.castle.domain.Castle;
@@ -22,11 +23,7 @@ import pl.dawid.main.structure.domain.Structure;
 @Getter
 @RequiredArgsConstructor
 public class FetchCastleStructureByIdService implements
-        FetchCastleStructureByIdUseCase {
+        FetchCastleStructureByIdUseCase,
+        FetchByIdService<CastleStructure> {
     private final FetchCastleStructureByIdPort fetchByIdPort;
-
-    @Override
-    public CastleStructure fetchById(Long id) {
-        return getFetchByIdPort().fetchById(id);
-    }
 }

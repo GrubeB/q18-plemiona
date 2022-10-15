@@ -4,8 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import pl.dawid.main.resource.domain.BaseResource;
 import pl.dawid.main.resource.domain.ResourceType;
-import pl.dawid.main.structure.StructureLevel;
 import pl.dawid.main.structure_blueprint.domain.StructureBlueprint;
+import pl.dawid.main.structure_blueprint.domain.StructureLevel;
 import pl.dawid.main.structure_blueprint.domain.StructureLevelType;
 import pl.dawid.main.structure_blueprint.domain.StructureType;
 

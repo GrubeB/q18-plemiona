@@ -29,4 +29,9 @@ public class CastlePersistenceAdapter implements
         UpdatePersistenceAdapter<Castle> {
     private Long nextId = 1L;
     private Map<Long, Castle> repository = new ConcurrentHashMap<>(10);
+
+    @Override
+    public Castle fetchById(Long id) {
+        return FetchByIdPersistenceAdapter.super.fetchById(id);
+    }
 }

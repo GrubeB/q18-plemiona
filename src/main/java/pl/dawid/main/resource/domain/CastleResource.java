@@ -51,12 +51,6 @@ public class CastleResource implements SetId {
         Optional.ofNullable(resourceMap.get(materials.getResourceType()))
                 .ifPresent(resource -> resource.addResource(materials.getAmount()));
     }
-
-    public void subtractResource(BaseResource materials) throws IllegalArgumentException {
-        Optional.ofNullable(resourceMap.get(materials.getResourceType()))
-                .ifPresent(resource -> resource.subtractResource(materials.getAmount()));
-    }
-
     public void addResourceList(List<BaseResource> materialList) throws IllegalArgumentException {
         materialList.forEach(this::addResource);
     }
@@ -64,7 +58,10 @@ public class CastleResource implements SetId {
     public void subtractResourceList(List<BaseResource> materialList) throws IllegalArgumentException {
         materialList.forEach(this::subtractResource);
     }
-
+    public void subtractResource(BaseResource materials) throws IllegalArgumentException {
+        Optional.ofNullable(resourceMap.get(materials.getResourceType()))
+                .ifPresent(resource -> resource.subtractResource(materials.getAmount()));
+    }
     // -----------------------------------------------------------------------------------------------
     public void verifyIfIsEnoughResources(BaseResource materials) throws IllegalArgumentException {
         Resource castleResource = resourceMap.get(materials.getResourceType());

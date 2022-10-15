@@ -8,9 +8,9 @@ public interface CreatePersistenceAdapter<T extends SetId> extends GetRepository
 
     @Override
     default T create(T jpaEntity) {
-        setNextId(getNextId() + 1);
         jpaEntity.setId(getNextId());
         getRepository().put(getNextId(), jpaEntity);
+        setNextId(getNextId() + 1);
         return jpaEntity;
     }
 }

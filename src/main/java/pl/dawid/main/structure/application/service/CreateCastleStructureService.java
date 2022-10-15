@@ -8,13 +8,10 @@ import org.springframework.stereotype.Service;
 import pl.dawid.main.castle.application.port.in.FetchCastleByIdUseCase;
 import pl.dawid.main.castle.domain.Castle;
 import pl.dawid.main.structure.CastleStructure;
+import pl.dawid.main.structure.application.CastleStructureFactory;
 import pl.dawid.main.structure.application.port.in.CreateCastleStructureUseCase;
-import pl.dawid.main.structure.application.port.in.FetchCastleStructureByIdUseCase;
-import pl.dawid.main.structure.application.port.in.FetchStructureByIdUseCase;
 import pl.dawid.main.structure.application.port.in.dto.CreateCastleStructureCommand;
 import pl.dawid.main.structure.application.port.out.CreateCastleStructurePort;
-import pl.dawid.main.structure.application.port.out.FetchCastleStructureByIdPort;
-import pl.dawid.main.structure.domain.Structure;
 
 @Service
 @Setter

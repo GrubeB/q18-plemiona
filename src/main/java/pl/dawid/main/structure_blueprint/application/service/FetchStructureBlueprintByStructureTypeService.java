@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
+import pl.dawid.main.structure_blueprint.application.port.in.FetchByStructureTypeUseCase;
 import pl.dawid.main.structure_blueprint.application.port.out.FetchStructureBlueprintByStructureTypePort;
 import pl.dawid.main.structure_blueprint.domain.StructureBlueprint;
 import pl.dawid.main.structure_blueprint.domain.StructureType;
@@ -13,7 +14,7 @@ import pl.dawid.main.structure_blueprint.domain.StructureType;
 @Getter
 @RequiredArgsConstructor
 public class FetchStructureBlueprintByStructureTypeService implements
-        FetchStructureBlueprintByStructureTypePort {
+        FetchByStructureTypeUseCase {
     private final FetchStructureBlueprintByStructureTypePort fetchStructureBlueprintByStructureTypePort;
     @Override
     public StructureBlueprint fetchByStructureType(StructureType structureType) {

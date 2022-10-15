@@ -21,8 +21,9 @@ public class test {
     @PostConstruct
     private void construct(){
         castle = createCastleUseCase.create(new CreateCastleCommand("Nowa"));
+        System.out.println();
     }
-    @Scheduled(initialDelay  = 100,fixedDelay = 1000)
+    @Scheduled(initialDelay  = 2000,fixedDelay = 1000)
     private void log() {
             logger.info(castle.getCastleResource().toString());
             logger.info(castle.getCastleStructure().toString());

@@ -1,4 +1,4 @@
-package pl.dawid.main.structure;
+package pl.dawid.main.structure_blueprint.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -7,6 +7,7 @@ import lombok.Setter;
 import pl.dawid.main.structure.CastleStructure;
 import pl.dawid.main.structure_blueprint.domain.StructureBlueprint;
 import pl.dawid.main.structure_blueprint.domain.StructureLevelType;
+import pl.dawid.main.structure_blueprint.domain.StructureType;
 
 @Getter
 @Setter
@@ -16,7 +17,7 @@ public class Structure {
     private Long id;
     private StructureLevelType level;
     private CastleStructure castleStructure;
-    private StructureBlueprint structureBlueprint;
+    private StructureType structureType;
 
     public void setNextLevel() {
         level = level.getNextLevel();
