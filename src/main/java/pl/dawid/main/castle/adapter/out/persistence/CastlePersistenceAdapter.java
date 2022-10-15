@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
-import pl.dawid.main.aaShare.persistence.*;
+import pl.dawid.main.aaShare.core.adapter.out.persistence.*;
 import pl.dawid.main.castle.application.port.out.*;
 import pl.dawid.main.castle.domain.Castle;
 

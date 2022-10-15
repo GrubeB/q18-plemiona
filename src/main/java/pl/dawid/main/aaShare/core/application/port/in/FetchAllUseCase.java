@@ -1,4 +1,4 @@
-package pl.dawid.main.aaShare.service;
+package pl.dawid.main.aaShare.core.application.port.in;
 
 import java.util.List;
 

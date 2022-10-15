@@ -1,4 +1,8 @@
-package pl.dawid.main.aaShare.persistence;
+package pl.dawid.main.aaShare.core.adapter.out.persistence;
+
+import pl.dawid.main.aaShare.core.application.port.out.FetchByIdPort;
+import pl.dawid.main.aaShare.core.application.port.out.GetRepositoryPort;
+import pl.dawid.main.aaShare.core.domain.SetId;
 
 import java.util.Optional;
 

@@ -1,7 +1,7 @@
 package pl.dawid.main.castle.domain;
 
 import lombok.*;
-import pl.dawid.main.aaShare.persistence.SetId;
+import pl.dawid.main.aaShare.core.domain.SetId;
 import pl.dawid.main.resource.domain.CastleResource;
 import pl.dawid.main.structure.CastleStructure;
 
