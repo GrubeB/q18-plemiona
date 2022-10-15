@@ -1,18 +1,17 @@
 package pl.dawid.main.structure.application.service;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.stereotype.Service;
 import pl.dawid.main.castle.domain.Castle;
-import pl.dawid.main.resource.domain.CastleResource;
-import pl.dawid.main.resource.domain.Resource;
-import pl.dawid.main.resource.domain.ResourceType;
 import pl.dawid.main.structure.CastleStructure;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.Map;
 
 @Service
+@Setter
+@Getter
 @RequiredArgsConstructor
 public class CastleStructureFactory {
     public CastleStructure createCastleStructure(Castle castle) {

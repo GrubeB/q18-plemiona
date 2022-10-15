@@ -1,6 +1,8 @@
 package pl.dawid.main.structure.application.service;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.dawid.main.castle.application.port.in.FetchCastleByIdUseCase;
@@ -15,19 +17,14 @@ import pl.dawid.main.structure.application.port.out.FetchCastleStructureByIdPort
 import pl.dawid.main.structure.domain.Structure;
 
 @Service
+@Setter
+@Getter
 @RequiredArgsConstructor
-public class CastleStructureService implements
-        CreateCastleStructureUseCase,
-        FetchCastleStructureByIdUseCase,
-        FetchStructureByIdUseCase {
-
+public class CreateCastleStructureService implements
+        CreateCastleStructureUseCase {
     private final CreateCastleStructurePort createCastleStructurePort;
-    private final FetchCastleStructureByIdPort fetchCastleStructureByIdPort;
-    private final FetchStructureByIdUseCase fetchStructureById;
-
     @Autowired
     private FetchCastleByIdUseCase fetchCastleByIdUseCase;
-
 
     private final CastleStructureFactory castleStructureFactory;
     @Override
@@ -37,15 +34,5 @@ public class CastleStructureService implements
         castle.setCastleStructure(castleStructureFromFactory);
         castleStructureFromFactory.setCastle(castle);
         return createCastleStructurePort.create(castleStructureFromFactory);
-    }
-
-    @Override
-    public CastleStructure fetchById(Long id) {
-        return fetchCastleStructureByIdPort.fetchById(id);
-    }
-
-    @Override
-    public Structure fetchStructureById(Long id) {
-        return fetchStructureById.fetchStructureById(id);
     }
 }

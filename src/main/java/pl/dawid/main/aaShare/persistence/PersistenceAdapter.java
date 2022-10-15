@@ -14,15 +14,16 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 
-@Getter
-@Setter
-@RequiredArgsConstructor
-public class PersistenceAdapter implements
-        CreatePersistenceAdapter<Castle>,
-        DeletePersistenceAdapter<Castle>,
-        FetchAllPersistenceAdapter<Castle>,
-        FetchByIdPersistenceAdapter<Castle>,
-        UpdatePersistenceAdapter<Castle> {
-    private Long nextId = 1L;
-    private Map<Long, Castle> repository = new ConcurrentHashMap<>(10);
-}
+//@Getter
+//@Setter
+//@RequiredArgsConstructor
+public class PersistenceAdapter{}
+//implements
+//        CreatePersistenceAdapter<Castle>,
+//        DeletePersistenceAdapter<Castle>,
+//        FetchAllPersistenceAdapter<Castle>,
+//        FetchByIdPersistenceAdapter<Castle>,
+//        UpdatePersistenceAdapter<Castle> {
+//    private Long nextId = 1L;
+//    private Map<Long, Castle> repository = new ConcurrentHashMap<>(10);
+//}
