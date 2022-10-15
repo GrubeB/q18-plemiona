@@ -1,6 +1,7 @@
 package pl.dawid.main.castle.domain;
 
 import lombok.*;
+import pl.dawid.main.aaShare.persistence.SetId;
 import pl.dawid.main.resource.domain.CastleResource;
 import pl.dawid.main.structure.CastleStructure;
 
@@ -8,7 +9,7 @@ import pl.dawid.main.structure.CastleStructure;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class Castle {
+public class Castle implements SetId {
     @Setter
     private Long id;
     //private User user;//TODO when user module will be ready

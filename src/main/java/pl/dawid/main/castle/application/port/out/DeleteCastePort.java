@@ -1,5 +1,6 @@
 package pl.dawid.main.castle.application.port.out;
 
-public interface DeleteCastePort {
-    void delete(Long id);
+import pl.dawid.main.aaShare.persistence.DeletePort;
+
+public interface DeleteCastePort extends DeletePort {
 }

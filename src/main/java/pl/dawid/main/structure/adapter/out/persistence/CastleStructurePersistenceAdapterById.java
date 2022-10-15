@@ -3,23 +3,33 @@ package pl.dawid.main.structure.adapter.out.persistence;
 import org.springframework.stereotype.Service;
 import pl.dawid.main.structure.CastleStructure;
 import pl.dawid.main.structure.application.port.out.*;
+import pl.dawid.main.structure.domain.Structure;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
-public class CastleStructurePersistenceAdapter implements
+public class CastleStructurePersistenceAdapterById implements
         CreateCastleStructurePort,
         DeleteCastleStructurePort,
         FetchAllCastleStructurePort,
-        FetchByIdCastleStructurePort,
-        UpdateCastleStructurePort {
+        FetchCastleStructureByIdPort,
+        UpdateCastleStructurePort,
+        FetchStructureByIdPort{
 
     private static Long nextId = 1L;
     private Map<Long, CastleStructure> repository = new ConcurrentHashMap<>(10);
+
+    @Override
+    public Structure fetchStructureById(Long id) {
+        return repository.values().stream()
+                .map(castleStructure -> castleStructure.getStructureMap().values())
+                .flatMap(Collection::stream)
+                .filter(structure -> structure.getId().equals(id))
+                .findFirst().orElseThrow(() -> new RuntimeException("Not found object with id: " + id));
+    }
 
     @Override
     public CastleStructure create(CastleStructure jpaEntity) {

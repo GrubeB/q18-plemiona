@@ -1,6 +1,9 @@
 package pl.dawid.main.castle.application.service;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.dawid.main.castle.application.port.in.CreateCastleCommand;
 import pl.dawid.main.castle.application.port.in.CreateCastleUseCase;
@@ -21,6 +24,7 @@ import pl.dawid.main.structure.application.port.in.dto.CreateCastleStructureComm
 import java.util.List;
 
 @Service
+@Setter
 @RequiredArgsConstructor
 public class CastleService implements
         CreateCastleUseCase,
@@ -33,8 +37,10 @@ public class CastleService implements
     private final UpdateCastlePort updateCastlePort;
 
 
-    private final CreateCastleResourceUseCase createCastleResourceUseCase;
-    private final CreateCastleStructureUseCase createCastleStructureUseCase;
+    @Autowired
+    private CreateCastleResourceUseCase createCastleResourceUseCase;
+    @Autowired
+    private CreateCastleStructureUseCase createCastleStructureUseCase;
 
 
     private final CastleFactory castleFactory;

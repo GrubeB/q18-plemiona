@@ -21,47 +21,6 @@ public class CastleStructure {
     private Map<StructureType, Structure> structureMap;
 
     /* METHODS */
-    public void levelUpStructure(StructureType structureType, CastleResource castleResource, StructureBuildManager structureBuildManager) throws IllegalStateException {
-//        if(structureType==null) {
-//            throw new IllegalStateException("StructureType Is Null");
-//        }
-//        if(!getIfStructureExists(structureType)){
-//            StructureBlueprint  structureBlueprint = StructureFactory.getStructureBlueprintByStructureType(structureType);
-//            Structure structure = new Structure(nextID, StructureLevelType.LEVEL0, this, structureBlueprint);
-//            nextID++;
-//            structureMap.put(structureType,structure);
-//        }
-//
-//        Structure structure = structureMap.get(structureType);
-//        StructureLevel nextStructureLevel= structure.getStructureBlueprint().getNextStructureLevel(structure.getLevel());
-//
-//        // ================================SKPRAWDZENIE===================================
-//        // pusta kolejka budowy
-//
-//        // sprawdzenie czy nie jest budowany
-//        structureBuildManager.checkIfStructureIsBuilding(structure);
-//        // spełnie ilosci surowców
-//        List<BaseResource> resourceList = nextStructureLevel.getResourceList();
-//        castleResource.verifyIfIsEnoughResourceList(resourceList);
-//        // spełnia wymagania
-//
-//
-//
-//        // ================================BUDOWANIE===================================
-//        // odjęcie surowców
-//        castleResource.subtractResourceList(resourceList);
-//        // dodanie do kolejki but right now just level up
-////            StructureLevelType nextLevel = structureMap.get(structureType).getLevel().getNextLevel();
-////            structureMap.get(structureType).setLevel(nextLevel);
-//        StructureBuild structureBuild = new StructureBuild(
-//                nextID,
-//                structure,
-//                LocalDateTime.now(),
-//                LocalDateTime.now().plusSeconds(nextStructureLevel.getDuration().getSeconds()));
-//        nextID++;
-//        structureBuildManager.addStructureBuild(structureBuild);
-
-    }
     public void setCastle(Castle newCastle) {
         if (castle == newCastle) return;
         castle.setCastleStructure(null);
