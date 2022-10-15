@@ -21,6 +21,7 @@ public class CastlePersistenceAdapter implements
         FetchCastleByIdPort,
         UpdateCastlePort,
         DeleteCastePort,
+
         CreatePersistenceAdapter<Castle>,
         DeletePersistenceAdapter<Castle>,
         FetchAllPersistenceAdapter<Castle>,

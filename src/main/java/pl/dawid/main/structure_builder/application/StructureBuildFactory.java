@@ -1,4 +1,4 @@
-package pl.dawid.main.structure_builder.application.service;
+package pl.dawid.main.structure_builder.application;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

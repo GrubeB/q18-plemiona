@@ -2,23 +2,10 @@ package pl.dawid.main.structure_builder.application.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.dawid.main.castle.application.port.in.CreateCastleCommand;
-import pl.dawid.main.castle.application.port.in.CreateCastleUseCase;
-import pl.dawid.main.castle.application.port.in.FetchAllCastleUseCase;
-import pl.dawid.main.castle.application.port.in.FetchCastleByIdUseCase;
-import pl.dawid.main.castle.application.port.out.CreateCastlePort;
-import pl.dawid.main.castle.application.port.out.FetchAllCastlePort;
-import pl.dawid.main.castle.application.port.out.FetchCastleByIdPort;
-import pl.dawid.main.castle.application.port.out.UpdateCastlePort;
-import pl.dawid.main.castle.domain.Castle;
-import pl.dawid.main.resource.application.port.in.CreateCastleResourceUseCase;
-import pl.dawid.main.resource.application.port.in.dto.CreateCastleResourceCommand;
 import pl.dawid.main.resource.domain.CastleResource;
 import pl.dawid.main.structure.CastleStructure;
-import pl.dawid.main.structure.application.port.in.CreateCastleStructureUseCase;
 import pl.dawid.main.structure.application.port.in.FetchCastleStructureByIdUseCase;
 import pl.dawid.main.structure.application.port.in.FetchStructureByIdUseCase;
-import pl.dawid.main.structure.application.port.in.dto.CreateCastleStructureCommand;
 import pl.dawid.main.structure.domain.Structure;
 import pl.dawid.main.structure_blueprint.domain.StructureType;
 import pl.dawid.main.structure_builder.adapter.in.StructureBuildManager;
@@ -26,10 +13,8 @@ import pl.dawid.main.structure_builder.application.port.in.FetchAllStructureBuil
 import pl.dawid.main.structure_builder.application.port.in.FetchStructureBuildByIdUseCase;
 import pl.dawid.main.structure_builder.application.port.in.LevelUpStructurePort;
 import pl.dawid.main.structure_builder.application.port.in.dto.LevelUpStructureCommand;
-import pl.dawid.main.structure_builder.application.port.out.CreateStructureBuildPort;
 import pl.dawid.main.structure_builder.application.port.out.FetchAllStructureBuildPort;
 import pl.dawid.main.structure_builder.application.port.out.FetchStructureBuildByIdPort;
-import pl.dawid.main.structure_builder.application.port.out.UpdateStructureBuildPort;
 import pl.dawid.main.structure_builder.domain.StructureBuild;
 
 import java.util.List;
@@ -37,14 +22,12 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class StructureBuildService implements
-        FetchAllStructureBuildUseCase,
-        FetchStructureBuildByIdUseCase,
         LevelUpStructurePort {
 
-    private final CreateStructureBuildPort createStructureBuildPort;
+
     private final FetchAllStructureBuildPort fetchAllStructureBuildPort;
     private final FetchStructureBuildByIdPort fetchStructureBuildByIdPort;
-    private final UpdateStructureBuildPort updateStructureBuildPort;
+
 
 
     private final FetchCastleStructureByIdUseCase fetchCastleStructureByIdUseCase;
@@ -111,15 +94,4 @@ public class StructureBuildService implements
 //
 //        return updateCastlePort.update(castle.getId(), castle);
 //    }
-
-    @Override
-    public List<StructureBuild> fetchAll() {
-        return fetchAllStructureBuildPort.fetchAll();
-    }
-
-    @Override
-    public StructureBuild fetchById(Long id) {
-        return fetchStructureBuildByIdPort.fetchById(id);
-    }
-
 }
