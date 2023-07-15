@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import pl.dawid.main.aaShare.SelfValidating;
 import pl.dawid.main.resource.application.port.in.dto.CreateCastleResourceCommand;
+import pl.dawid.main.structure_blueprint.domain.StructureType;
 
 @Getter
 @NoArgsConstructor
@@ -12,5 +13,5 @@ import pl.dawid.main.resource.application.port.in.dto.CreateCastleResourceComman
 public class LevelUpStructureCommand extends SelfValidating<CreateCastleResourceCommand> {
     private Long castleStructureId;
     private Long castleResourceId;
-    private Long structureId;
+    private StructureType structureType;
 }

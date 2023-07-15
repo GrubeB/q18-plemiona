@@ -1,5 +1,6 @@
 package pl.dawid.main.structure;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +23,7 @@ import java.util.Objects;
 public class CastleStructure implements SetId {
 
     private Long id;
-
+    @JsonIgnore
     private Castle castle;
     private Map<StructureType, Structure> structureMap;
 
@@ -33,10 +34,21 @@ public class CastleStructure implements SetId {
             throw new IllegalArgumentException("Structure has been already built");
         }
     }
+    public void verifyIfStructureIsBuilt(StructureType structureType) throws IllegalArgumentException {
+        if (!checkIfStructureIsBuilt(structureType)) {
+            throw new IllegalArgumentException("Structure has been already built");
+        }
+    }
+
     public boolean checkIfStructureIsBuilt(StructureType structureType) {
         return structureMap.containsKey(structureType);
     }
 
+    public void levelUpStructure(StructureType structureType) {
+        Structure structure = structureMap.get(structureType);
+        if(structure == null) throw new RuntimeException("Not fount object");
+        structure.setNextLevel();
+    }
     // ---------------------------------------------------------------------------------------------------------------
 
     public void setCastle(Castle newCastle) {
@@ -56,8 +68,13 @@ public class CastleStructure implements SetId {
         structureMap.remove(structure.getStructureType());
     }
 
-    public Map<StructureType, Structure> getStructureObjectList() {
+    @JsonIgnore
+    public Map<StructureType, Structure> getStructureObjectMap() {
         return Collections.unmodifiableMap(this.structureMap);
+    }
+
+    public Structure getStructureObjectByStructureType(StructureType structureType) {
+        return structureMap.get(structureType);
     }
 
     // ---------------------------------------------------------------------------------------------------------------

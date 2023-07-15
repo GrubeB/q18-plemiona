@@ -22,24 +22,19 @@ import pl.dawid.main.structure.domain.Structure;
 @RequiredArgsConstructor
 public class CreateStructureService implements
         CreateStructureUseCase {
-    private final CreateCastleStructurePort createCastleStructurePort;
     private final FetchCastleStructureByIdPort fetchCastleStructureByIdPort;
     private final UpdateCastleStructurePort updateCastleStructurePort;
-    private final CreateStructurePort createStructurePort;
-
-
-    @Autowired
-    private FetchCastleByIdUseCase fetchCastleByIdUseCase;
+    //private final CreateStructurePort createStructurePort;
 
     private final CastleStructureFactory castleStructureFactory;
 
     @Override
     public Structure create(CreateStructureCommand command) {
         CastleStructure castleStructure = fetchCastleStructureByIdPort.fetchById(command.getCastleStructureId());
-        Structure structure = castleStructureFactory.createStructure(command.getStructureType(), castleStructure);
-        Structure savedStructure = createStructurePort.createStructure(structure);
-        castleStructure.addStructureObject(savedStructure);
+        Structure structureFromFactory = castleStructureFactory.createStructure(command.getStructureType(), castleStructure);
+        //Structure savedStructure = createStructurePort.createStructure(structureFromFactory);
+        castleStructure.addStructureObject(structureFromFactory);
         updateCastleStructurePort.update(castleStructure.getId(),castleStructure);
-        return savedStructure;
+        return structureFromFactory;
     }
 }

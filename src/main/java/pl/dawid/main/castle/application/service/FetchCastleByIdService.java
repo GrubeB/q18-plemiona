@@ -17,4 +17,5 @@ public class FetchCastleByIdService implements
         FetchCastleByIdUseCase,
         FetchByIdService<Castle> {
     private final FetchCastleByIdPort fetchByIdPort;
+
 }

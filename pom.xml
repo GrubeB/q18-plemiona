@@ -9,9 +9,9 @@
         <relativePath/>
     </parent>
     <groupId>pl.dawid</groupId>
-    <artifactId>q14-plemiona</artifactId>
+    <artifactId>q18-plemiona</artifactId>
     <version>0.0.1</version>
-    <name>q14-plemiona</name>
+    <name>q18-plemiona</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

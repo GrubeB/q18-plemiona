@@ -6,37 +6,48 @@ import pl.dawid.main.resource.application.port.in.FetchCastleResourceByIdUseCase
 import pl.dawid.main.resource.domain.BaseResource;
 import pl.dawid.main.resource.domain.CastleResource;
 import pl.dawid.main.structure.CastleStructure;
-import pl.dawid.main.structure.application.port.in.CreateCastleStructureUseCase;
+import pl.dawid.main.structure.application.port.in.CreateStructureUseCase;
 import pl.dawid.main.structure.application.port.in.FetchCastleStructureByIdUseCase;
-import pl.dawid.main.structure.application.port.in.FetchStructureByIdUseCase;
-import pl.dawid.main.structure.application.port.in.dto.CreateCastleStructureCommand;
+import pl.dawid.main.structure.application.port.in.dto.CreateStructureCommand;
 import pl.dawid.main.structure.domain.Structure;
 import pl.dawid.main.structure_blueprint.application.port.out.FetchStructureBlueprintByStructureTypePort;
 import pl.dawid.main.structure_blueprint.domain.StructureBlueprint;
 import pl.dawid.main.structure_blueprint.domain.StructureLevel;
 import pl.dawid.main.structure_blueprint.domain.StructureType;
 import pl.dawid.main.structure_builder.adapter.in.StructureBuildManager;
-import pl.dawid.main.structure_builder.application.port.in.BuildStructurePort;
-import pl.dawid.main.structure_builder.application.port.in.LevelUpStructurePort;
+import pl.dawid.main.structure_builder.application.StructureBuildFactory;
+import pl.dawid.main.structure_builder.application.port.in.BuildStructureUseCase;
+import pl.dawid.main.structure_builder.application.port.in.LevelUpStructureUseCase;
 import pl.dawid.main.structure_builder.application.port.in.dto.BuildStructureCommand;
 import pl.dawid.main.structure_builder.application.port.in.dto.LevelUpStructureCommand;
+import pl.dawid.main.structure_builder.application.port.out.CreateStructureBuildPort;
 import pl.dawid.main.structure_builder.domain.StructureBuild;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class StructureBuildService implements
-        LevelUpStructurePort,
-        BuildStructurePort {
+        LevelUpStructureUseCase,
+        BuildStructureUseCase {
 
+    // structure build
+    private final StructureBuildFactory structureBuildFactory;
+    private final CreateStructureBuildPort createStructureBuildPort;
+    // structure
     private final FetchCastleStructureByIdUseCase fetchCastleStructureByIdUseCase;
-    private final FetchCastleResourceByIdUseCase fetchCastleResourceByIdUseCase;
 
-    private final FetchStructureByIdUseCase fetchStructureByIdUseCase;
+    private final CreateStructureUseCase createStructureUseCase;
+
+    // structure blueprint
     private final FetchStructureBlueprintByStructureTypePort fetchStructureBlueprintByStructureTypePort;
 
-    private final CreateCastleStructureUseCase createCastleStructureUseCase;
+    // resources
+    private final FetchCastleResourceByIdUseCase fetchCastleResourceByIdUseCase;
+
+
+
     @Override
     public void buildStructure(BuildStructureCommand command) {
         CastleStructure castleStructure = fetchCastleStructureByIdUseCase.fetchById(command.getCastleStructureId());
@@ -52,17 +63,40 @@ public class StructureBuildService implements
 
         // built
         castleResource.subtractResourceList(resourceList);
-
-        // createCastleStructureUseCase.create(new CreateCastleStructureCommand())
-        // new StructureBuild(null,)
-
+        Structure structure = createStructureUseCase.create(new CreateStructureCommand(
+                command.getCastleStructureId(),
+                command.getStructureType()));
+        StructureBuild structureBuild =new StructureBuild(null,
+                castleStructure.getId(),
+                structure.getStructureType(),
+                LocalDateTime.now(),
+                LocalDateTime.now().plusSeconds(firstStructureLevel.getDuration().getSeconds()));
+        createStructureBuildPort.create(structureBuild);
     }
 
     @Override
     public void levelUpStructure(LevelUpStructureCommand command) {
         CastleStructure castleStructure = fetchCastleStructureByIdUseCase.fetchById(command.getCastleStructureId());
-       // Structure structure = fetchStructureByIdUseCase.fetchStructureById(command.getStructureId());
+        castleStructure.verifyIfStructureIsBuilt(command.getStructureType());
+        Structure structure = castleStructure.getStructureObjectByStructureType(command.getStructureType());
 
+        // verify requirements
+        StructureBlueprint structureBlueprint = fetchStructureBlueprintByStructureTypePort.fetchByStructureType(command.getStructureType());
+        StructureLevel structureLevel = structureBlueprint.getNextStructureLevel(structure.getLevel());
+
+        // verify if enough resources
+        List<BaseResource> resourceList = structureLevel.getResourceList();
+        CastleResource castleResource = fetchCastleResourceByIdUseCase.fetchById(command.getCastleResourceId());
+        castleResource.verifyIfIsEnoughResourceList(resourceList);
+
+        // built
+        castleResource.subtractResourceList(resourceList);
+        StructureBuild structureBuild =new StructureBuild(null,
+                castleStructure.getId(),
+                structure.getStructureType(),
+                LocalDateTime.now(),
+                LocalDateTime.now().plusSeconds(structureLevel.getDuration().getSeconds()));
+        createStructureBuildPort.create(structureBuild);
     }
 
     public void levelUpStructure(StructureType structureType, CastleResource castleResource, StructureBuildManager structureBuildManager) throws IllegalStateException {

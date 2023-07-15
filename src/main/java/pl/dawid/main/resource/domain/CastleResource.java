@@ -1,5 +1,6 @@
 package pl.dawid.main.resource.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class CastleResource implements SetId {
     private Long id;
     private LocalDateTime lastAutoUpdate;
 
+    @JsonIgnore
     private Castle castle;
     private Map<ResourceType, Resource> resourceMap;
 

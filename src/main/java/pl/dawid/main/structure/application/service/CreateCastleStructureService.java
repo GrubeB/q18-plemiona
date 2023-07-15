@@ -29,7 +29,6 @@ public class CreateCastleStructureService implements
         Castle castle = fetchCastleByIdUseCase.fetchById(command.getCastleId());
         CastleStructure castleStructureFromFactory = castleStructureFactory.createCastleStructure(castle);
         castle.setCastleStructure(castleStructureFromFactory);
-        castleStructureFromFactory.setCastle(castle);
         return createCastleStructurePort.create(castleStructureFromFactory);
     }
 }

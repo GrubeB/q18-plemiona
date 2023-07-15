@@ -22,6 +22,6 @@ public class CastleStructureFactory {
     }
 
     public Structure createStructure(StructureType structureType, CastleStructure castleStructure) {
-        return new Structure(null, StructureLevelType.LEVEL1,castleStructure,structureType);
+        return new Structure(null, StructureLevelType.LEVEL0,castleStructure,structureType);
     }
 }

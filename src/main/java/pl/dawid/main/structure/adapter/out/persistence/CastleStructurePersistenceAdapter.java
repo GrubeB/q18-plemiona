@@ -10,6 +10,7 @@ import pl.dawid.main.structure.application.port.out.*;
 import pl.dawid.main.structure.application.port.out.structure.CreateStructurePort;
 import pl.dawid.main.structure.application.port.out.structure.FetchStructureByIdPort;
 import pl.dawid.main.structure.domain.Structure;
+import pl.dawid.main.structure_blueprint.domain.StructureType;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -38,20 +39,21 @@ public class CastleStructurePersistenceAdapter implements
     private Map<Long, Structure> structureRepository = new ConcurrentHashMap<>(100);
     @Override
     public Structure fetchStructureById(Long id) {
-        return Optional.ofNullable(structureRepository.get(id))
-                .orElseThrow(() -> new RuntimeException("Not found object with id: " + id));
-//        return repository.values().stream()
-//                .map(castleStructure -> castleStructure.getStructureMap().values())
-//                .flatMap(Collection::stream)
-//                .filter(structure -> structure.getId().equals(id))
-//                .findFirst().orElseThrow(() -> new RuntimeException("Not found object with id: " + id));
+//        return Optional.ofNullable(structureRepository.get(id))
+//                .orElseThrow(() -> new RuntimeException("Not found object with id: " + id));
+        return repository.values().stream()
+                .map(castleStructure -> castleStructure.getStructureMap().values())
+                .flatMap(Collection::stream)
+                .filter(structure -> structure.getId().equals(id))
+                .findFirst().orElseThrow(() -> new RuntimeException("Not found object with id: " + id));
 
     }
     @Override
     public Structure createStructure(Structure jpaEntity){
         jpaEntity.setId(nextId);
         nextId++;
-        structureRepository.put(jpaEntity.getId(),jpaEntity);
+        //structureRepository.put(jpaEntity.getId(),jpaEntity);
         return jpaEntity;
     }
+
 }
